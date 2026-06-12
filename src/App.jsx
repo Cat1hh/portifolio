@@ -244,18 +244,27 @@ export default function App() {
           </button>
 
           <div className="service-card-wrapper">
-            <div className="service-card-premium">
-              {visitorName && <p className="personal-note">Olá {visitorName}, veja abaixo como posso ajudar você.</p>}
-              <div className="service-icon">
-                <i className={services[currentService].icon}></i>
+            <div className="service-card-premium" key={currentService}>
+              <div className="service-card-header">
+                <span className="service-badge">Solução {String(currentService + 1).padStart(2, '0')}</span>
+                <div className="service-icon">
+                  <i className={services[currentService].icon}></i>
+                </div>
               </div>
-              <h3>{services[currentService].title}</h3>
-              <p className="service-desc">{services[currentService].description}</p>
-              <div className="service-price-tag">
-                <span className="price-label">A partir de</span>
-                <span className="price-value">{services[currentService].price}</span>
+
+              <div className="service-card-body">
+                {visitorName && <p className="personal-note">Olá {visitorName}, veja abaixo como posso ajudar você.</p>}
+                <h3>{services[currentService].title}</h3>
+                <p className="service-desc">{services[currentService].description}</p>
               </div>
-              <a href="#contato" className="btn-service-action">Solicitar Orçamento</a>
+
+              <div className="service-card-footer">
+                <div className="service-price-tag">
+                  <span className="price-label">A partir de</span>
+                  <span className="price-value">{services[currentService].price}</span>
+                </div>
+                <a href="#contato" className="btn-service-action">Solicitar Orçamento</a>
+              </div>
             </div>
           </div>
 
