@@ -133,7 +133,7 @@ export default function App() {
       {showInitialSplash && (
         <div className="initial-splash">
           <div className="initial-splash-box">
-            <h1>Seja bem-vindo</h1>
+            <div className="initial-splash-orb" aria-hidden="true"></div>
           </div>
         </div>
       )}
@@ -197,7 +197,6 @@ export default function App() {
       <header className="hero">
         <div className="hero-content">
           <h2 className="greeting">Olá, eu sou</h2>
-          {visitorName && <h4 className="welcome-small">Seja bem-vindo, {visitorName}!</h4>}
           <h1 className="name">Gustavo de Bruyn</h1>
           <h3 className="role">Desenvolvedor Full-Stack & Freelancer</h3>
           <p className="summary">
