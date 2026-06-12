@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 export default function App() {
@@ -91,11 +91,64 @@ export default function App() {
   // 3. ESTADO DO MODAL DE SKILLS
   const [selectedSkill, setSelectedSkill] = useState(null);
 
+  // Visitor name + modal/greeting state
+  const [visitorName, setVisitorName] = useState(null);
+  const [nameInput, setNameInput] = useState('');
+  const [showNameModal, setShowNameModal] = useState(false);
+  const [showGreeting, setShowGreeting] = useState(false);
+
   const nextService = () => setCurrentService((prev) => (prev + 1) % services.length);
   const prevService = () => setCurrentService((prev) => (prev - 1 + services.length) % services.length);
 
+  // On mount, check localStorage for visitor name
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('visitorName');
+      if (stored) {
+        setVisitorName(stored);
+        // show short greeting on subsequent visits
+        setShowGreeting(true);
+        setTimeout(() => setShowGreeting(false), 2000);
+      } else {
+        setShowNameModal(true);
+      }
+    } catch (e) {
+      // ignore localStorage errors in restrictive environments
+    }
+  }, []);
+
   return (
     <div className="app-container">
+      {/* Name input modal (first visit) */}
+      {showNameModal && (
+        <div className="name-modal-overlay">
+          <form className="name-modal" onSubmit={(e) => {
+            e.preventDefault();
+            const val = nameInput.trim();
+            if (!val) return;
+            try { localStorage.setItem('visitorName', val); } catch (e) {}
+            setVisitorName(val);
+            setShowNameModal(false);
+            setShowGreeting(true);
+            setTimeout(() => setShowGreeting(false), 2200);
+          }}>
+            <h3>Olá! Qual é o seu nome?</h3>
+            <input autoFocus type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} placeholder="Digite só o seu primeiro nome" />
+            <div className="name-modal-actions">
+              <button type="submit" className="btn-primary">Salvar</button>
+            </div>
+          </form>
+        </div>
+      )}
+
+      {/* Greeting animation */}
+      {showGreeting && visitorName && (
+        <div className="greeting-overlay">
+          <div className="greeting-box">
+            <h2>Seja bem-vindo, {visitorName}!</h2>
+          </div>
+        </div>
+      )}
       {/* Navbar */}
       <nav className="navbar">
         <h1 className="logo">GB.</h1>
@@ -111,6 +164,7 @@ export default function App() {
       <header className="hero">
         <div className="hero-content">
           <h2 className="greeting">Olá, eu sou</h2>
+          {visitorName && <h4 className="welcome-small">Seja bem-vindo, {visitorName}!</h4>}
           <h1 className="name">Gustavo de Bruyn</h1>
           <h3 className="role">Desenvolvedor Full-Stack & Freelancer</h3>
           <p className="summary">
@@ -159,6 +213,7 @@ export default function App() {
 
           <div className="service-card-wrapper">
             <div className="service-card-premium">
+              {visitorName && <p className="personal-note">Olá {visitorName}, veja abaixo como posso ajudar você.</p>}
               <div className="service-icon">
                 <i className={services[currentService].icon}></i>
               </div>
