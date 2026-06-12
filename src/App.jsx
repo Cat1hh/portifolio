@@ -156,8 +156,9 @@ export default function App() {
               setTimeout(() => setShowGreeting(false), 2200);
             }, 1400);
           }}>
-            <h3>Olá! Qual é o seu nome?</h3>
-            <input autoFocus type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} placeholder="Digite só o seu primeiro nome" />
+            <h3>Qual é o seu nome?</h3>
+            <p className="name-modal-subtitle">Digite apenas seu primeiro nome para continuar.</p>
+            <input autoFocus type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} placeholder="Seu nome" />
             <div className="name-modal-actions">
               <button type="submit" className="btn-primary">Salvar</button>
             </div>
