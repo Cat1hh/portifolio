@@ -1,0 +1,612 @@
+/* Importando fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* Variáveis de Cores: Paleta Dark/Neon Cyan */
+:root {
+  --bg-main: #050505;
+  --bg-secondary: #0a0e17;
+  --card-bg: #0c121e; 
+  --primary-blue: #00ffff; /* Ciano Neon */
+  --dark-blue: #001224;
+  --text-light: #ffffff;
+  --text-muted: #9ca3af;
+  --accent: #00b4d8;
+  
+  /* Efeitos de Brilho Neon */
+  --neon-text: 0 0 8px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.4);
+  --neon-box: 0 0 10px rgba(0, 255, 255, 0.4), 0 0 25px rgba(0, 255, 255, 0.2);
+  --neon-box-hover: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.logo {
+  font-size: 1.8rem;
+  color: var(--primary-blue);
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-shadow: var(--neon-text);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-blue);
+  text-shadow: var(--neon-text);
+}
+
+/* Hero Section Centralizada */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #1f2937;
+  text-align: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+}
+
+.greeting {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.role {
+  font-size: 2rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+.summary {
+  max-width: 600px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: transparent;
+  color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--neon-box);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-blue);
+  color: var(--bg-main);
+  box-shadow: var(--neon-box-hover);
+}
+
+/* Seções Gerais Centralizadas */
+.section {
+  padding: 100px 0;
+  border-bottom: 1px solid #1f2937;
+  text-align: center; /* Garante o alinhamento central */
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Ajuste da Linha Neon: Agora fica perfeitamente no meio */
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background-color: var(--primary-blue);
+  box-shadow: var(--neon-box);
+}
+
+/* Sobre Mim */
+.about-content p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Projetos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 30px;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  text-align: center;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-blue);
+  box-shadow: var(--neon-box-hover);
+}
+
+.project-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.project-info p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.project-tech {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: var(--primary-blue);
+  font-family: monospace;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+}
+
+/* Footer */
+.footer {
+  padding: 80px 0 40px;
+  text-align: center;
+  background-color: var(--bg-secondary);
+}
+
+.footer h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.footer p {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.social-links a {
+  color: var(--text-light);
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-blue);
+  transform: translateY(-3px) scale(1.1);
+  text-shadow: var(--neon-text);
+}
+
+.copyright {
+  font-size: 0.85rem;
+  border-top: 1px solid #1f2937;
+  padding-top: 20px;
+}
+
+/* ==========================================================================
+   CARROSSEL DE SKILLS (Imagens corrigidas)
+   ========================================================================== */
+.skills-carousel {
+  margin-top: 50px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+}
+
+.skills-track {
+  display: flex;
+  width: calc(150px * 20); 
+  animation: scroll 30s linear infinite;
+}
+
+.skills-carousel:hover .skills-track {
+  animation-play-state: paused;
+}
+
+.skill-slide {
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-slide img {
+  max-height: 55px;
+  max-width: 55px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.5));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.skill-slide:hover img {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.8));
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-150px * 10)); }
+}
+
+/* ==========================================================================
+   SERVIÇOS (CARROSSEL INTERATIVO)
+   ========================================================================== */
+.section-subtitle {
+  color: var(--text-muted);
+  margin-top: -30px;
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+}
+
+.services-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.carousel-btn {
+  background: var(--bg-main);
+  border: 1px solid var(--primary-blue);
+  color: var(--primary-blue);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--neon-box);
+}
+
+.carousel-btn:hover {
+  background: var(--primary-blue);
+  color: var(--bg-main);
+  box-shadow: var(--neon-box-hover);
+  transform: scale(1.1);
+}
+
+.service-card-wrapper {
+  flex: 1;
+  min-height: 420px;
+  display: flex;
+}
+
+.service-card-premium {
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.05), var(--neon-box);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: var(--primary-blue);
+  margin-bottom: 20px;
+  text-shadow: var(--neon-text);
+}
+
+.service-card-premium h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.service-desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 500px;
+}
+
+.service-price-tag {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.price-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.price-value {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: var(--neon-text);
+}
+
+.btn-service-action {
+  background-color: transparent;
+  color: var(--primary-blue);
+  padding: 12px 35px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border: 1px solid var(--primary-blue);
+  box-shadow: var(--neon-box);
+}
+
+.btn-service-action:hover {
+  background-color: var(--primary-blue);
+  color: var(--bg-main);
+  box-shadow: var(--neon-box-hover);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #1f2937;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: var(--primary-blue);
+  box-shadow: var(--neon-box);
+  width: 25px;
+  border-radius: 5px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .name { font-size: 2.5rem; }
+  .role { font-size: 1.5rem; }
+  .nav-links { display: none; }
+  .services-carousel-container { gap: 15px; }
+  .price-value { font-size: 2rem; }
+  .service-card-premium { padding: 25px 15px; }
+}
+/* ==========================================================================
+   CARROSSEL DE SKILLS (Tamanhos Aumentados)
+   ========================================================================== */
+.skills-carousel {
+  margin-top: 50px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 140px; /* Altura aumentada para caber a logo maior */
+  display: flex;
+  align-items: center;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+}
+
+.skills-track {
+  display: flex;
+  width: calc(200px * 20); /* Ajustado para os slides maiores */
+  animation: scroll 40s linear infinite;
+}
+
+.skills-carousel:hover .skills-track {
+  animation-play-state: paused;
+}
+
+.skill-slide {
+  width: 200px; /* Slide mais largo */
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; /* Adicionado: Mostra a "mãozinha" indicando que é clicável */
+}
+
+.skill-slide img {
+  max-height: 85px; /* Tamanho da logo muito maior (era 55px) */
+  max-width: 85px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.5));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.skill-slide:hover img {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.9));
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-200px * 10)); }
+}
+/* ==========================================================================
+   MODAL DE DETALHES DAS SKILLS (JANELA FLUTUANTE)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  border: 1px solid var(--primary-blue);
+  box-shadow: var(--neon-box);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: left;
+  animation: slideUp 0.4s ease;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+  color: var(--primary-blue);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  padding-bottom: 15px;
+}
+
+.modal-skill-icon {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));
+}
+
+.modal-header h3 {
+  font-size: 2rem;
+  color: var(--primary-blue);
+  text-shadow: var(--neon-text);
+}
+
+.modal-details p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--text-muted);
+}
+
+.modal-details p strong {
+  color: #fff;
+  margin-right: 10px;
+}
+
+.modal-details i {
+  color: var(--primary-blue);
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
