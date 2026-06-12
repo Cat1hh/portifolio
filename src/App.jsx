@@ -96,6 +96,7 @@ export default function App() {
   const [nameInput, setNameInput] = useState('');
   const [showNameModal, setShowNameModal] = useState(false);
   const [showGreeting, setShowGreeting] = useState(false);
+  const [showPreparing, setShowPreparing] = useState(false);
   const [showInitialSplash, setShowInitialSplash] = useState(true);
 
   const nextService = () => setCurrentService((prev) => (prev + 1) % services.length);
@@ -147,8 +148,13 @@ export default function App() {
             try { localStorage.setItem('visitorName', val); } catch (e) {}
             setVisitorName(val);
             setShowNameModal(false);
-            setShowGreeting(true);
-            setTimeout(() => setShowGreeting(false), 2200);
+            // show preparing overlay briefly then greeting
+            setShowPreparing(true);
+            setTimeout(() => {
+              setShowPreparing(false);
+              setShowGreeting(true);
+              setTimeout(() => setShowGreeting(false), 2200);
+            }, 1400);
           }}>
             <h3>Olá! Qual é o seu nome?</h3>
             <input autoFocus type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} placeholder="Digite só o seu primeiro nome" />
@@ -164,6 +170,14 @@ export default function App() {
         <div className="greeting-overlay">
           <div className="greeting-box">
             <h2>Seja bem-vindo, {visitorName}!</h2>
+          </div>
+        </div>
+      )}
+
+      {showPreparing && (
+        <div className="preparing-overlay">
+          <div className="preparing-box">
+            <h2>Estamos preparando o sistema para você...</h2>
           </div>
         </div>
       )}
