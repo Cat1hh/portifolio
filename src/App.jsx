@@ -96,6 +96,7 @@ export default function App() {
   const [nameInput, setNameInput] = useState('');
   const [showNameModal, setShowNameModal] = useState(false);
   const [showGreeting, setShowGreeting] = useState(false);
+  const [showInitialSplash, setShowInitialSplash] = useState(true);
 
   const nextService = () => setCurrentService((prev) => (prev + 1) % services.length);
   const prevService = () => setCurrentService((prev) => (prev - 1 + services.length) % services.length);
@@ -105,20 +106,37 @@ export default function App() {
     try {
       const stored = localStorage.getItem('visitorName');
       if (stored) {
+        // If we already know the name, skip name modal but show short greeting
         setVisitorName(stored);
-        // show short greeting on subsequent visits
+        setShowInitialSplash(false);
         setShowGreeting(true);
         setTimeout(() => setShowGreeting(false), 2000);
       } else {
-        setShowNameModal(true);
+        // Show initial black splash first, then the name modal
+        setShowInitialSplash(true);
+        const t = setTimeout(() => {
+          setShowInitialSplash(false);
+          setShowNameModal(true);
+        }, 1600);
+        return () => clearTimeout(t);
       }
     } catch (e) {
-      // ignore localStorage errors in restrictive environments
+      setShowInitialSplash(false);
+      setShowNameModal(true);
     }
   }, []);
 
   return (
     <div className="app-container">
+      {/* Initial black splash (shows 'Seja bem-vindo' first) */}
+      {showInitialSplash && (
+        <div className="initial-splash">
+          <div className="initial-splash-box">
+            <h1>Seja bem-vindo</h1>
+          </div>
+        </div>
+      )}
+
       {/* Name input modal (first visit) */}
       {showNameModal && (
         <div className="name-modal-overlay">

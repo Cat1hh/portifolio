@@ -695,3 +695,27 @@ img {
 
 .welcome-small { margin: 6px 0 0; color: var(--primary-blue); font-weight:600; }
 .personal-note { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px; }
+
+/* Initial full-screen black splash */
+.initial-splash {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index: 10000;
+}
+.initial-splash-box {
+  color: #fff;
+  text-align:center;
+  animation: splashInOut 1.6s ease forwards;
+}
+.initial-splash-box h1 { font-size: 3rem; letter-spacing: 1px; margin:0; }
+
+@keyframes splashInOut {
+  0% { opacity: 0; transform: scale(0.96); }
+  20% { opacity: 1; transform: scale(1); }
+  80% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.98); }
+}
