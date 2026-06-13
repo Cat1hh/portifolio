@@ -5,357 +5,389 @@ export default function App() {
   const contactEmail = 'd3bruyn@gmail.com';
   const whatsappNumber = '5527998281915';
 
-  // 1. DADOS: Logos com informações de aprendizado e aplicação
+  // 1. DADOS: Logos
   const skillLogos = [
-    { 
-      name: 'React', 
-      url: 'https://unpkg.com/devicon@2.14.0/icons/react/react-original.svg',
-      learned: 'SENAI / Projetos Pessoais',
-      project: 'Interface do Caça Verbos',
-      period: '2026'
-    },
-    { 
-      name: 'Node.js', 
-      url: 'https://unpkg.com/devicon@2.14.0/icons/nodejs/nodejs-original.svg',
-      learned: 'Estudos focados em Backend',
-      project: 'Integração do motor de segurança Defend',
-      period: '2026'
-    },
-    { 
-      name: 'Rust', 
-      url: 'https://unpkg.com/devicon@2.14.0/icons/rust/rust-plain.svg',
-      learned: 'Autodidata / Documentação',
-      project: 'Motor de alta performance do Defend',
-      period: '2026'
-    },
-    { 
-      name: 'TypeScript', 
-      url: 'https://unpkg.com/devicon@2.14.0/icons/typescript/typescript-original.svg',
-      learned: 'Estudos para tipagem segura',
-      project: 'Projetos de Front-end',
-      period: 'Atual'
-    },
-    { 
-      name: 'JavaScript', 
-      url: 'https://unpkg.com/devicon@2.14.0/icons/javascript/javascript-original.svg',
-      learned: 'Findes / SENAI',
-      project: 'Reformulação do VixCursos',
-      period: '2025'
-    },
-    { 
-      name: 'PostgreSQL', 
-      url: 'https://unpkg.com/devicon@2.14.0/icons/postgresql/postgresql-original.svg',
-      learned: 'Estácio (Análise e Desenvolvimento de Sistemas)',
-      project: 'Banco de dados estruturado do Caça Verbos',
-      period: '2026'
-    },
-    { 
-      name: 'Linux', 
-      url: 'https://unpkg.com/devicon@2.14.0/icons/linux/linux-original.svg',
-      learned: 'Migração de SO e Cibersegurança',
-      project: 'Ambiente principal de desenvolvimento e testes de rede',
-      period: 'Contínuo'
-    },
-    { 
-      name: 'Git', 
-      url: 'https://unpkg.com/devicon@2.14.0/icons/git/git-original.svg',
-      learned: 'Prática Diária / Versionamento',
-      project: 'Todos os projetos no GitHub',
-      period: 'Contínuo'
-    },
-    { 
-      name: 'Docker', 
-      url: 'https://unpkg.com/devicon@2.14.0/icons/docker/docker-original.svg',
-      learned: 'Estudos de Infraestrutura',
-      project: 'Containerização de ambientes',
-      period: 'Atual'
-    },
-    { 
-      name: 'Python', 
-      url: 'https://unpkg.com/devicon@2.14.0/icons/python/python-original.svg',
-      learned: 'Conhecimentos básicos de automação',
-      project: 'Scripts de teste simples',
-      period: 'Ocasional'
-    },
+    { name: 'React', url: 'https://unpkg.com/devicon@2.14.0/icons/react/react-original.svg', learned: 'Projetos Pessoais', project: 'Interface do Caça Verbos', period: '2026' },
+    { name: 'Node.js', url: 'https://unpkg.com/devicon@2.14.0/icons/nodejs/nodejs-original.svg', learned: 'Estudos focados em Backend', project: 'Integração do motor de segurança Defend', period: '2026' },
+    { name: 'Rust', url: 'https://unpkg.com/devicon@2.14.0/icons/rust/rust-plain.svg', learned: 'Autodidata / Documentação', project: 'Motor de alta performance do DefendES', period: '2026' },
+    { name: 'TypeScript', url: 'https://unpkg.com/devicon@2.14.0/icons/typescript/typescript-original.svg', learned: 'Estudos para tipagem segura', project: 'Projetos de Front-end', period: 'Atual' },
+    { name: 'JavaScript', url: 'https://unpkg.com/devicon@2.14.0/icons/javascript/javascript-original.svg', learned: 'Experiência Prática', project: 'Reformulação do VixCursos', period: '2025' },
+    { name: 'PostgreSQL', url: 'https://unpkg.com/devicon@2.14.0/icons/postgresql/postgresql-original.svg', learned: 'Estácio (ADS)', project: 'Banco de dados estruturado do Caça Verbos', period: '2026' },
+    { name: 'Linux', url: 'https://unpkg.com/devicon@2.14.0/icons/linux/linux-original.svg', learned: 'Migração de SO e Cibersegurança', project: 'Ambiente principal de desenvolvimento e testes', period: 'Contínuo' },
+    { name: 'Git', url: 'https://unpkg.com/devicon@2.14.0/icons/git/git-original.svg', learned: 'Prática Diária / Versionamento', project: 'Todos os projetos no GitHub', period: 'Contínuo' },
+    { name: 'Docker', url: 'https://unpkg.com/devicon@2.14.0/icons/docker/docker-original.svg', learned: 'Estudos de Infraestrutura', project: 'Containerização de ambientes', period: 'Atual' },
+    { name: 'Python', url: 'https://unpkg.com/devicon@2.14.0/icons/python/python-original.svg', learned: 'Automação', project: 'Scripts de teste simples', period: 'Ocasional' },
   ];
 
   const infiniteSkills = [...skillLogos, ...skillLogos];
 
-  // 2. DADOS: Seus Serviços
+  // 2. DADOS: Serviços e Projetos
   const services = [
     { title: 'Portfólio Profissional', price: 'R$ 450', description: 'Um site exclusivo, rápido e totalmente responsivo para destacar sua carreira.', icon: 'fa-solid fa-user-tie' },
     { title: 'Sites para Serviços', price: 'R$ 800', description: 'Landing pages de alta conversão e sites institucionais sob medida.', icon: 'fa-solid fa-laptop-code' },
     { title: 'Logomarcas', price: 'R$ 100', description: 'Criação de identidade visual moderna e profissional.', icon: 'fa-solid fa-pen-nib' }
   ];
 
-  const [currentService, setCurrentService] = useState(0);
-  
-  // 3. ESTADO DO MODAL DE SKILLS
-  const [selectedSkill, setSelectedSkill] = useState(null);
+  const projects = [
+    { title: 'VixCursos', description: 'Reformulação do sistema para a Prefeitura de Vitória, visando otimizar a experiência do usuário e aumentar inscrições.', tech: ['HTML', 'CSS', 'JavaScript'] },
+    { title: 'DefendES', description: 'Software de segurança de rede desenvolvido com um motor de alta performance para monitoramento seguro.', tech: ['Rust', 'Node.js', 'Linux'] },
+    { title: 'Caça Verbos', description: 'Software educacional interativo focado no aprendizado infantil, combinando banco de dados estruturado e interface dinâmica.', tech: ['React', 'CSS', 'SQL'] }
+  ];
 
-  // Visitor name + modal/greeting state
-  const [visitorName, setVisitorName] = useState(null);
+  const [currentService, setCurrentService] = useState(0);
+  const [selectedSkill, setSelectedSkill] = useState(null);
+  
+  // Controle de Telas Iniciais Pretas
+  // 0 = App Principal, 1 = "Bem vindo", 2 = "Qual é seu nome", 3 = "Preparando tudo"
+  const [introStage, setIntroStage] = useState(1);
+  const [visitorName, setVisitorName] = useState('');
   const [nameInput, setNameInput] = useState('');
-  const [showNameModal, setShowNameModal] = useState(false);
-  const [showGreeting, setShowGreeting] = useState(false);
-  const [showPreparing, setShowPreparing] = useState(false);
-  const [showInitialSplash, setShowInitialSplash] = useState(true);
+
+  // Controle de Certificados
+  const [showCertModal, setShowCertModal] = useState(false);
+
+  // Controle do Chatbot DD7
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatInput, setChatInput] = useState('');
+  const [chatMessages, setChatMessages] = useState([
+    { sender: 'DD7', text: 'Woof! Au au! 🐾 Sou o DD7, o mascote e assistente virtual do Gustavo!' },
+    { sender: 'DD7', text: 'Digite um número para saber mais:\n\n1 - Tempo na área do Gustavo\n2 - Ver Certificados\n3 - Linguagens de Programação' }
+  ]);
 
   const nextService = () => setCurrentService((prev) => (prev + 1) % services.length);
   const prevService = () => setCurrentService((prev) => (prev - 1 + services.length) % services.length);
+  
   const handleBudgetClick = (service) => {
     const clientName = visitorName || 'Visitante';
-    const whatsappMessage = `Olá! Me chamo ${clientName} e gostaria de um orçamento para ${service.title}. ${service.description}`;
-    const emailSubject = `Novo clique em Solicitar Orçamento - ${service.title}`;
-    const emailBody = [
-      'Alguém clicou no botão Solicitar Orçamento no seu portfólio.',
-      `Serviço: ${service.title}`,
-      `Nome informado: ${visitorName || 'não informado'}`,
-      `Preço exibido: ${service.price}`,
-      `Mensagem para WhatsApp: ${whatsappMessage}`,
-    ].join('\n');
+    const whatsappMessage = `Olá! Me chamo ${clientName} e gostaria de um orçamento para: ${service.title}.`;
+    const emailSubject = `Novo clique em Orçamento - ${service.title}`;
+    const emailBody = `Serviço: ${service.title}\nNome: ${clientName}\nPreço base: ${service.price}\n\nMensagem: ${whatsappMessage}`;
 
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-    const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    window.open(mailtoUrl, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`, '_blank', 'noopener,noreferrer');
+    window.open(`mailto:${contactEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`, '_blank', 'noopener,noreferrer');
   };
 
-  // On mount, check localStorage for visitor name
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    const input = chatInput.trim();
+    if (!input) return;
+    
+    const newMessages = [...chatMessages, { sender: 'user', text: input }];
+    setChatMessages(newMessages);
+    setChatInput('');
+
+    setTimeout(() => {
+      let botResponse = '';
+
+      if (input === '1') {
+        botResponse = 'Au au! 🐾 O Gustavo atua como desenvolvedor Junior e freelancer, criando soluções eficientes e com código de qualidade!';
+      } else if (input === '2') {
+        botResponse = 'Buscando arquivos... 🏆 Pronto! Acabei de abrir a galeria de certificados na sua tela!';
+        setShowCertModal(true);
+      } else if (input === '3') {
+        botResponse = 'O Gustavo manda muito bem em: React, Node.js, JavaScript, Rust, SQL e domina o Linux! 💻\n\n(E um segredo: ele passa longe de C# e Next.js, mas curte um pouco de Python!)';
+      } else {
+        botResponse = '*Inclina a cabeça* 🐶 Desculpe, não entendi! Digite apenas 1, 2 ou 3 para escolher uma das opções.';
+      }
+
+      setChatMessages((prev) => [...prev, { sender: 'DD7', text: botResponse }]);
+    }, 800);
+  };
+
+  const handleNameSubmit = (e) => {
+    e.preventDefault();
+    const val = nameInput.trim();
+    if (!val) return;
+    try { localStorage.setItem('visitorName', val); } catch (e) {}
+    setVisitorName(val);
+    setIntroStage(3); // Vai para tela de "Preparando"
+    setTimeout(() => {
+      setIntroStage(0); // Abre o App
+    }, 3000); // 3 segundos carregando
+  };
+
   useEffect(() => {
     try {
       const stored = localStorage.getItem('visitorName');
       if (stored) {
-        // If we already know the name, skip name modal but show short greeting
         setVisitorName(stored);
-        setShowInitialSplash(false);
-        setShowGreeting(true);
-        setTimeout(() => setShowGreeting(false), 2000);
+        setIntroStage(3);
+        setTimeout(() => setIntroStage(0), 2500);
       } else {
-        // Show initial black splash first, then the name modal
-        setShowInitialSplash(true);
-        const t = setTimeout(() => {
-          setShowInitialSplash(false);
-          setShowNameModal(true);
-        }, 1600);
-        return () => clearTimeout(t);
+        setIntroStage(1);
+        setTimeout(() => setIntroStage(2), 2000); // Fica 2s na tela de "Bem vindo"
       }
     } catch (e) {
-      setShowInitialSplash(false);
-      setShowNameModal(true);
+      setIntroStage(1);
+      setTimeout(() => setIntroStage(2), 2000);
     }
   }, []);
 
   return (
     <div className="app-container">
-      {/* Initial black splash (shows 'Seja bem-vindo' first) */}
-      {showInitialSplash && (
-        <div className="initial-splash">
-          <div className="initial-splash-box">
-            <div className="initial-splash-orb" aria-hidden="true"></div>
-          </div>
+      {/* =========================================
+          TELAS INICIAIS PRETAS
+          ========================================= */}
+      {introStage === 1 && (
+        <div className="black-intro-screen">
+          <h1 className="intro-title">Bem vindo</h1>
         </div>
       )}
 
-      {/* Name input modal (first visit) */}
-      {showNameModal && (
-        <div className="name-modal-overlay">
-          <form className="name-modal" onSubmit={(e) => {
-            e.preventDefault();
-            const val = nameInput.trim();
-            if (!val) return;
-            try { localStorage.setItem('visitorName', val); } catch (e) {}
-            setVisitorName(val);
-            setShowNameModal(false);
-            // show preparing overlay briefly then greeting
-            setShowPreparing(true);
-            setTimeout(() => {
-              setShowPreparing(false);
-              setShowGreeting(true);
-              setTimeout(() => setShowGreeting(false), 2200);
-            }, 1400);
-          }}>
-            <h3>Qual é o seu nome?</h3>
-            <p className="name-modal-subtitle">Digite apenas seu primeiro nome para continuar.</p>
-            <input autoFocus type="text" value={nameInput} onChange={(e) => setNameInput(e.target.value)} placeholder="Seu nome" />
-            <div className="name-modal-actions">
-              <button type="submit" className="btn-primary">Salvar</button>
-            </div>
+      {introStage === 2 && (
+        <div className="black-intro-screen">
+          <form className="intro-form" onSubmit={handleNameSubmit}>
+            <h2 className="intro-subtitle">Qual é o seu nome?</h2>
+            <input 
+              autoFocus 
+              type="text" 
+              value={nameInput} 
+              onChange={(e) => setNameInput(e.target.value)} 
+              placeholder="Digite seu nome..." 
+            />
           </form>
         </div>
       )}
 
-      {/* Greeting animation */}
-      {showGreeting && visitorName && (
-        <div className="greeting-overlay">
-          <div className="greeting-box">
-            <h2>Seja bem-vindo, {visitorName}!</h2>
-          </div>
+      {introStage === 3 && (
+        <div className="black-intro-screen">
+          <h2 className="intro-subtitle">Seja bem vindo, <span className="highlight-name">{visitorName}</span></h2>
+          <p className="intro-text">Estamos preparando tudo para você, aguarde...</p>
+          <div className="loader-ring small intro-loader"></div>
         </div>
       )}
 
-      {showPreparing && (
-        <div className="preparing-overlay">
-          <div className="preparing-box">
-            <h2>Estamos preparando o sistema para você...</h2>
-          </div>
-        </div>
-      )}
-      {/* Navbar */}
-      <nav className="navbar">
-        <h1 className="logo">BRUYN</h1>
-        <ul className="nav-links">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#projetos">Projetos</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
+      {/* Conteúdo Principal (Só aparece quando introStage é 0) */}
+      {introStage === 0 && (
+        <>
+          {/* Navbar */}
+          <nav className="navbar">
+            <h1 className="logo">GB<span className="dot">.</span></h1>
+            <ul className="nav-links">
+              <li><a href="#sobre">Sobre</a></li>
+              <li><a href="#servicos">Serviços</a></li>
+              <li><a href="#projetos">Projetos</a></li>
+              <li><a href="#contato" className="nav-cta">Contato</a></li>
+            </ul>
+          </nav>
 
-      {/* Hero Section */}
-      <header className="hero">
-        <div className="hero-content">
-          <h2 className="greeting">Olá, eu sou</h2>
-          <h1 className="name">Gustavo de Bruyn</h1>
-          <h3 className="role">Desenvolvedor Full-Stack & Freelancer</h3>
-          <p className="summary">
-            Especialista em construir soluções completas, focando em arquiteturas seguras e de alta performance utilizando React, Node.js, SQL e Rust.
-          </p>
-          <a href="#servicos" className="btn-primary">Ver Serviços</a>
-        </div>
-      </header>
+          {/* Hero Section */}
+          <header className="hero">
+            <div className="hero-content">
+              <div className="hero-text-area">
+                <span className="badge">Disponível para novos projetos</span>
+                <h2 className="greeting">Olá, eu sou</h2>
+                <h1 className="name">Gustavo <span>de Bruyn</span></h1>
+                <h3 className="role">Desenvolvedor Full-Stack & Seg. da Informação</h3>
+                <p className="summary">
+                  Especialista em construir soluções completas, focando em arquiteturas seguras e de alta performance utilizando <strong>React, Node.js, SQL e Rust</strong>.
+                </p>
+                <div className="hero-buttons">
+                  <a href="#projetos" className="btn-primary">Ver Projetos</a>
+                  <a href="#contato" className="btn-secondary">Falar no WhatsApp</a>
+                </div>
+              </div>
+              <div className="hero-visual">
+                <div className="glow-circle"></div>
+                <div className="profile-placeholder">
+                  <i className="fa-solid fa-user-astronaut"></i>
+                </div>
+              </div>
+            </div>
+          </header>
 
-      {/* Sobre Mim */}
-      <section id="sobre" className="section about">
-        <h2 className="section-title">Sobre Mim</h2>
-        <div className="about-content">
-          <p>
-            Sou um Profissional de Análise e Desenvolvimento de Sistemas e possuo formação técnica pelo SENAI. Iniciei minha trajetória como Jovem Aprendiz na Findes e desde então venho focando em criar soluções reais e eficientes.
-          </p>
-          <p>
-            Sou da área de cibersegurança e ambientes Linux. Minha stack principal se baseia no ecossistema JavaScript/React/Node e em sistemas robustos com Rust.
-          </p>
-          
-          <div className="skills-carousel">
-            <div className="skills-track">
-              {infiniteSkills.map((skill, index) => (
-                <div 
-                  className="skill-slide" 
-                  key={index} 
-                  onClick={() => setSelectedSkill(skill)} /* Abre o modal ao clicar */
-                >
-                  <img src={skill.url} alt={`Logo do ${skill.name}`} title={`Clique para ver detalhes de ${skill.name}`} />
+          {/* Sobre Mim */}
+          <section id="sobre" className="section about">
+            <div className="section-header">
+              <h2 className="section-title">Sobre Mim</h2>
+              <div className="divider"></div>
+            </div>
+            <div className="about-content glass-panel">
+              <p>
+                Sou um Profissional de Análise e Desenvolvimento de Sistemas. Iniciei minha trajetória de forma prática e desde então venho focando em criar soluções reais e eficientes.
+              </p>
+              <p>
+                Tenho forte atuação na área de <strong>cibersegurança e ambientes Linux</strong>. Minha stack principal se baseia no ecossistema JavaScript/React/Node e na criação de sistemas robustos com Rust.
+              </p>
+            </div>
+            
+            <div className="skills-carousel">
+              <div className="skills-track">
+                {infiniteSkills.map((skill, index) => (
+                  <div className="skill-slide" key={index} onClick={() => setSelectedSkill(skill)}>
+                    <div className="skill-icon-wrapper">
+                      <img src={skill.url} alt={skill.name} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Serviços */}
+          <section id="servicos" className="section services-section">
+            <div className="section-header center">
+              <h2 className="section-title">Serviços & Soluções</h2>
+              <p className="section-subtitle">Soluções digitais profissionais sob medida para o seu objetivo.</p>
+            </div>
+            
+            <div className="services-carousel-container">
+              <button className="carousel-btn" onClick={prevService} aria-label="Anterior"><i className="fa-solid fa-chevron-left"></i></button>
+
+              <div className="service-card-wrapper">
+                <div className="service-card-premium glass-panel" key={currentService}>
+                  <div className="service-card-header">
+                    <span className="service-badge">Pacote {String(currentService + 1).padStart(2, '0')}</span>
+                    <div className="service-icon"><i className={services[currentService].icon}></i></div>
+                  </div>
+                  <div className="service-card-body">
+                    {visitorName && <p className="personal-note">Olá <strong>{visitorName}</strong>, veja como posso ajudar:</p>}
+                    <h3>{services[currentService].title}</h3>
+                    <p className="service-desc">{services[currentService].description}</p>
+                  </div>
+                  <div className="service-card-footer">
+                    <div className="service-price-tag">
+                      <span className="price-label">A partir de</span>
+                      <span className="price-value">{services[currentService].price}</span>
+                    </div>
+                    <button type="button" className="btn-primary" onClick={() => handleBudgetClick(services[currentService])}>
+                      <i className="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <button className="carousel-btn" onClick={nextService} aria-label="Próximo"><i className="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </section>
+
+          {/* Projetos */}
+          <section id="projetos" className="section projects">
+            <div className="section-header">
+              <h2 className="section-title">Projetos em Destaque</h2>
+              <div className="divider"></div>
+            </div>
+            <div className="projects-grid">
+              {projects.map((proj, idx) => (
+                <div className="project-card glass-panel" key={idx}>
+                  <div className="project-content">
+                    <h3><i className="fa-solid fa-folder-open folder-icon"></i> {proj.title}</h3>
+                    <p>{proj.description}</p>
+                    <div className="project-tech">
+                      {proj.tech.map((t, i) => <span key={i} className="tech-pill">{t}</span>)}
+                    </div>
+                  </div>
+                  <div className="project-overlay-btn">
+                    <button className="btn-icon"><i className="fa-solid fa-arrow-up-right-from-square"></i></button>
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* Serviços */}
-      <section id="servicos" className="section services-section">
-        <h2 className="section-title">Serviços & Soluções</h2>
-        <p className="section-subtitle">Invista no crescimento do seu negócio com soluções digitais profissionais.</p>
-        
-        <div className="services-carousel-container">
-          <button className="carousel-btn prev" onClick={prevService} aria-label="Anterior">
-            <i className="fa-solid fa-chevron-left"></i>
-          </button>
+          {/* Rodapé */}
+          <footer id="contato" className="footer">
+            <div className="footer-content glass-panel">
+              <h2>Vamos construir algo juntos?</h2>
+              <p>Disponível de Segunda a Sexta para novos desafios em Serra e região.</p>
+              <div className="social-links">
+                <a href="https://www.linkedin.com/in/gustavo-de-bruyn-73155330a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Cat1hh" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i className="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/d3_bruyn/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
+              </div>
+              <p className="copyright">© 2026 Gustavo de Bruyn. Todos os direitos reservados.</p>
+            </div>
+          </footer>
 
-          <div className="service-card-wrapper">
-            <div className="service-card-premium" key={currentService}>
-              <div className="service-card-header">
-                <span className="service-badge">Solução {String(currentService + 1).padStart(2, '0')}</span>
-                <div className="service-icon">
-                  <i className={services[currentService].icon}></i>
+          {/* Modais */}
+          {selectedSkill && (
+            <div className="modal-overlay blur-bg" onClick={() => setSelectedSkill(null)}>
+              <div className="modal-content glass-panel" onClick={(e) => e.stopPropagation()}>
+                <button className="close-modal" onClick={() => setSelectedSkill(null)}><i className="fa-solid fa-xmark"></i></button>
+                <div className="modal-header">
+                  <div className="modal-skill-icon"><img src={selectedSkill.url} alt={selectedSkill.name} /></div>
+                  <h3>{selectedSkill.name}</h3>
+                </div>
+                <div className="modal-details">
+                  <div className="detail-item">
+                    <div className="detail-icon"><i className="fa-solid fa-graduation-cap"></i></div>
+                    <div><span className="detail-label">Onde aprendi</span><p>{selectedSkill.learned}</p></div>
+                  </div>
+                  <div className="detail-item">
+                    <div className="detail-icon"><i className="fa-solid fa-code"></i></div>
+                    <div><span className="detail-label">Onde apliquei</span><p>{selectedSkill.project}</p></div>
+                  </div>
+                  <div className="detail-item">
+                    <div className="detail-icon"><i className="fa-regular fa-calendar"></i></div>
+                    <div><span className="detail-label">Período</span><p>{selectedSkill.period}</p></div>
+                  </div>
                 </div>
               </div>
+            </div>
+          )}
 
-              <div className="service-card-body">
-                {visitorName && <p className="personal-note">Olá {visitorName}, veja abaixo como posso ajudar você.</p>}
-                <h3>{services[currentService].title}</h3>
-                <p className="service-desc">{services[currentService].description}</p>
-              </div>
-
-              <div className="service-card-footer">
-                <div className="service-price-tag">
-                  <span className="price-label">A partir de</span>
-                  <span className="price-value">{services[currentService].price}</span>
+          {showCertModal && (
+            <div className="modal-overlay blur-bg" onClick={() => setShowCertModal(false)}>
+              <div className="modal-content glass-panel certificates-modal" onClick={(e) => e.stopPropagation()}>
+                <button className="close-modal" onClick={() => setShowCertModal(false)}><i className="fa-solid fa-xmark"></i></button>
+                <div className="modal-header">
+                  <div className="modal-skill-icon" style={{background: 'var(--primary)', color: '#000'}}>
+                    <i className="fa-solid fa-award"></i>
+                  </div>
+                  <h3>Meus Certificados</h3>
                 </div>
-                <button type="button" className="btn-service-action" onClick={() => handleBudgetClick(services[currentService])}>Solicitar Orçamento</button>
+                <div className="certificates-grid">
+                  <div className="cert-card">
+                    <i className="fa-solid fa-graduation-cap"></i>
+                    <h4>Formação Técnica</h4>
+                    <p>Concluída</p>
+                  </div>
+                  <div className="cert-card">
+                    <i className="fa-solid fa-laptop-code"></i>
+                    <h4>Análise e Dev. de Sistemas</h4>
+                    <p>Estácio</p>
+                  </div>
+                  <div className="cert-card">
+                    <i className="fa-solid fa-shield-halved"></i>
+                    <h4>Cibersegurança e Redes</h4>
+                    <p>Cursos Livres</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
-          <button className="carousel-btn next" onClick={nextService} aria-label="Próximo">
-            <i className="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-      </section>
-
-      {/* Projetos */}
-      <section id="projetos" className="section projects">
-        <h2 className="section-title">Projetos em Destaque</h2>
-        <div className="projects-grid">
-          <div className="project-card">
-            <div className="project-info">
-              <h3>VixCursos</h3>
-              <p>Reformulação do sistema para a Prefeitura de Vitória, visando otimizar a experiência do usuário e aumentar as inscrições em cursos gratuitos.</p>
-              <div className="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-            </div>
-          </div>
-
-          <div className="project-card">
-            <div className="project-info">
-              <h3>DefendES</h3>
-              <p>Software de segurança de rede desenvolvido com um motor de alta performance para monitoramento seguro e interface em Node.</p>
-              <div className="project-tech"><span>Rust</span><span>Node.js</span></div>
-            </div>
-          </div>
-
-          <div className="project-card">
-            <div className="project-info">
-              <h3>Caça Verbos</h3>
-              <p>Software educacional interativo focado no aprendizado infantil, combinando banco de dados estruturado e interface dinâmica.</p>
-              <div className="project-tech"><span>HTML</span><span>CSS</span><span>SQL</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Rodapé */}
-      <footer id="contato" className="footer">
-        <div className="footer-content">
-          <h2>Vamos Conversar?</h2>
-          <p>Aberto de Segunda a Sexta</p>
-          <div className="social-links">
-            <a href="https://www.linkedin.com/in/gustavo-de-bruyn-73155330a/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/Cat1hh" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
-            <a href="https://www.instagram.com/d3_bruyn/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
-          </div>
-          <p className="copyright">© 2026 Gustavo de Bruyn. Todos os direitos reservados.</p>
-        </div>
-      </footer>
-
-      {/* MODAL DE DETALHES DA SKILL */}
-      {selectedSkill && (
-        <div className="modal-overlay" onClick={() => setSelectedSkill(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-modal" onClick={() => setSelectedSkill(null)}>
-              <i className="fa-solid fa-xmark"></i>
+          {/* Chatbot DD7 */}
+          <div className="dd7-chatbot-container">
+            {isChatOpen && (
+              <div className="dd7-chat-window glass-panel">
+                <div className="dd7-chat-header">
+                  <div className="dd7-avatar"><i className="fa-solid fa-dog"></i></div>
+                  <div className="dd7-header-info">
+                    <h4>DD7</h4>
+                    <span>Assistente Virtual</span>
+                  </div>
+                  <button className="dd7-close-btn" onClick={() => setIsChatOpen(false)}>
+                    <i className="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+                <div className="dd7-chat-body">
+                  {chatMessages.map((msg, idx) => (
+                    <div key={idx} className={`dd7-message ${msg.sender}`}><p>{msg.text}</p></div>
+                  ))}
+                </div>
+                <form className="dd7-chat-footer" onSubmit={handleSendMessage}>
+                  <input type="text" placeholder="Digite 1, 2 ou 3..." value={chatInput} onChange={(e) => setChatInput(e.target.value)} />
+                  <button type="submit" aria-label="Enviar mensagem"><i className="fa-solid fa-paper-plane"></i></button>
+                </form>
+              </div>
+            )}
+            <button className={`dd7-floating-btn ${isChatOpen ? 'active' : ''}`} onClick={() => setIsChatOpen(!isChatOpen)} aria-label="Abrir chat do DD7">
+              <i className="fa-solid fa-dog"></i>
+              {!isChatOpen && <span className="dd7-tooltip">Au au! Fale comigo!</span>}
             </button>
-            <div className="modal-header">
-              <img src={selectedSkill.url} alt={selectedSkill.name} className="modal-skill-icon" />
-              <h3>{selectedSkill.name}</h3>
-            </div>
-            <div className="modal-details">
-              <p><strong><i className="fa-solid fa-graduation-cap"></i> Onde aprendi:</strong> {selectedSkill.learned}</p>
-              <p><strong><i className="fa-solid fa-code"></i> Onde apliquei:</strong> {selectedSkill.project}</p>
-              <p><strong><i className="fa-regular fa-calendar"></i> Quando:</strong> {selectedSkill.period}</p>
-            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
