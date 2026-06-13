@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 export default function App() {
+  const contactEmail = 'd3bruyn@gmail.com';
+  const whatsappNumber = '5527998281915';
 
   // 1. DADOS: Logos com informações de aprendizado e aplicação
   const skillLogos = [
@@ -101,6 +103,24 @@ export default function App() {
 
   const nextService = () => setCurrentService((prev) => (prev + 1) % services.length);
   const prevService = () => setCurrentService((prev) => (prev - 1 + services.length) % services.length);
+  const handleBudgetClick = (service) => {
+    const clientName = visitorName || 'Visitante';
+    const whatsappMessage = `Olá! Me chamo ${clientName} e gostaria de um orçamento para ${service.title}. ${service.description}`;
+    const emailSubject = `Novo clique em Solicitar Orçamento - ${service.title}`;
+    const emailBody = [
+      'Alguém clicou no botão Solicitar Orçamento no seu portfólio.',
+      `Serviço: ${service.title}`,
+      `Nome informado: ${visitorName || 'não informado'}`,
+      `Preço exibido: ${service.price}`,
+      `Mensagem para WhatsApp: ${whatsappMessage}`,
+    ].join('\n');
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    window.open(mailtoUrl, '_blank', 'noopener,noreferrer');
+  };
 
   // On mount, check localStorage for visitor name
   useEffect(() => {
@@ -184,7 +204,7 @@ export default function App() {
       )}
       {/* Navbar */}
       <nav className="navbar">
-        <h1 className="logo">GB.</h1>
+        <h1 className="logo">BRUYN</h1>
         <ul className="nav-links">
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#servicos">Serviços</a></li>
@@ -211,7 +231,7 @@ export default function App() {
         <h2 className="section-title">Sobre Mim</h2>
         <div className="about-content">
           <p>
-            Sou estudante de Análise e Desenvolvimento de Sistemas e possuo formação técnica pelo SENAI. Iniciei minha trajetória como Jovem Aprendiz na Findes e desde então venho focando em criar soluções reais e eficientes.
+            Sou um Profissional de Análise e Desenvolvimento de Sistemas e possuo formação técnica pelo SENAI. Iniciei minha trajetória como Jovem Aprendiz na Findes e desde então venho focando em criar soluções reais e eficientes.
           </p>
           <p>
             Sou da área de cibersegurança e ambientes Linux. Minha stack principal se baseia no ecossistema JavaScript/React/Node e em sistemas robustos com Rust.
@@ -263,7 +283,7 @@ export default function App() {
                   <span className="price-label">A partir de</span>
                   <span className="price-value">{services[currentService].price}</span>
                 </div>
-                <a href="#contato" className="btn-service-action">Solicitar Orçamento</a>
+                <button type="button" className="btn-service-action" onClick={() => handleBudgetClick(services[currentService])}>Solicitar Orçamento</button>
               </div>
             </div>
           </div>
@@ -288,7 +308,7 @@ export default function App() {
 
           <div className="project-card">
             <div className="project-info">
-              <h3>Defend</h3>
+              <h3>DefendES</h3>
               <p>Software de segurança de rede desenvolvido com um motor de alta performance para monitoramento seguro e interface em Node.</p>
               <div className="project-tech"><span>Rust</span><span>Node.js</span></div>
             </div>
@@ -308,11 +328,11 @@ export default function App() {
       <footer id="contato" className="footer">
         <div className="footer-content">
           <h2>Vamos Conversar?</h2>
-          <p>Aberto a novas oportunidades e conexões profissionais em Serra e região.</p>
+          <p>Aberto de Segunda a Sexta</p>
           <div className="social-links">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/gustavo-de-bruyn-73155330a/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/Cat1hh" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/d3_bruyn/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
           </div>
           <p className="copyright">© 2026 Gustavo de Bruyn. Todos os direitos reservados.</p>
         </div>
