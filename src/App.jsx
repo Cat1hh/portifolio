@@ -38,7 +38,6 @@ export default function App() {
   const [selectedSkill, setSelectedSkill] = useState(null);
   
   // Controle de Telas Iniciais Pretas
-  // 0 = App Principal, 1 = "Bem vindo", 2 = "Qual é seu nome", 3 = "Preparando tudo"
   const [introStage, setIntroStage] = useState(1);
   const [visitorName, setVisitorName] = useState('');
   const [nameInput, setNameInput] = useState('');
@@ -100,10 +99,10 @@ export default function App() {
     if (!val) return;
     try { localStorage.setItem('visitorName', val); } catch (e) {}
     setVisitorName(val);
-    setIntroStage(3); // Vai para tela de "Preparando"
+    setIntroStage(3);
     setTimeout(() => {
-      setIntroStage(0); // Abre o App
-    }, 3000); // 3 segundos carregando
+      setIntroStage(0);
+    }, 3000); 
   };
 
   useEffect(() => {
@@ -125,9 +124,7 @@ export default function App() {
 
   return (
     <div className="app-container">
-      {/* =========================================
-          TELAS INICIAIS PRETAS
-          ========================================= */}
+     
       {introStage === 1 && (
         <div className="black-intro-screen">
           <h1 className="intro-title">Bem vindo</h1>
@@ -157,7 +154,7 @@ export default function App() {
         </div>
       )}
 
-      {/* Conteúdo Principal (Só aparece quando introStage é 0) */}
+      
       {introStage === 0 && (
         <>
           {/* Navbar */}
@@ -171,7 +168,7 @@ export default function App() {
             </ul>
           </nav>
 
-          {/* Hero Section */}
+         
           <header className="hero">
             <div className="hero-content">
               <div className="hero-text-area">
@@ -196,7 +193,7 @@ export default function App() {
             </div>
           </header>
 
-          {/* Sobre Mim */}
+       
           <section id="sobre" className="section about">
             <div className="section-header">
               <h2 className="section-title">Sobre Mim</h2>
@@ -224,7 +221,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* Serviços */}
+       
           <section id="servicos" className="section services-section">
             <div className="section-header center">
               <h2 className="section-title">Serviços & Soluções</h2>
@@ -261,7 +258,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* Projetos */}
+
           <section id="projetos" className="section projects">
             <div className="section-header">
               <h2 className="section-title">Projetos em Destaque</h2>
@@ -285,7 +282,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* Rodapé */}
+
           <footer id="contato" className="footer">
             <div className="footer-content glass-panel">
               <h2>Vamos construir algo juntos?</h2>
@@ -299,7 +296,7 @@ export default function App() {
             </div>
           </footer>
 
-          {/* Modais */}
+    
           {selectedSkill && (
             <div className="modal-overlay blur-bg" onClick={() => setSelectedSkill(null)}>
               <div className="modal-content glass-panel" onClick={(e) => e.stopPropagation()}>
@@ -357,7 +354,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Chatbot DD7 */}
+    
           <div className="dd7-chatbot-container">
             {isChatOpen && (
               <div className="dd7-chat-window glass-panel">
